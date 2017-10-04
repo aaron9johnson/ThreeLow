@@ -13,5 +13,6 @@
 @property NSMutableArray *heldDice;
 -(void)holdDie:(int)number;
 -(void)roll;
+-(void)resetDice;
 -(NSString *)print;
 @end

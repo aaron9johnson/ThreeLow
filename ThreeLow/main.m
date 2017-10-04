@@ -25,6 +25,8 @@ int main(int argc, const char * argv[]) {
             
             if([inputString isEqualToString:@"roll"]){
                 [game roll];
+            } else if([inputString isEqualToString:@"reset"]){
+                [game resetDice];
             } else {
                 [game holdDie:(int)[inputString integerValue]];
             }

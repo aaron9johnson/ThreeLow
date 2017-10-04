@@ -36,6 +36,11 @@
         }
     }
 }
+-(void)resetDice{
+    for(int i = 0; i < _dice.count; i++){
+        _heldDice[i] = @0;
+    }
+}
 -(NSString *)print{
     NSMutableString *temp = [NSMutableString new];
     for(int i = 0; i < _dice.count; i++){
