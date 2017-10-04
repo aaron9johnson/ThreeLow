@@ -14,5 +14,6 @@
 -(void)holdDie:(int)number;
 -(void)roll;
 -(void)resetDice;
+-(int)score;
 -(NSString *)print;
 @end

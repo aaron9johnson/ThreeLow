@@ -41,6 +41,13 @@
         _heldDice[i] = @0;
     }
 }
+-(int)score{
+    int temp = 0;
+    for(Dice *any in _dice){
+        temp = temp + any.currentValue;
+    }
+    return temp;
+}
 -(NSString *)print{
     NSMutableString *temp = [NSMutableString new];
     for(int i = 0; i < _dice.count; i++){
@@ -50,6 +57,7 @@
             [temp appendString:[NSString stringWithFormat:@"%@ ", [_dice[i] print]]];
         }
     }
+    [temp appendString:[NSString stringWithFormat:@"Score: %d", [self score]]];
     return temp;
 }
 @end
