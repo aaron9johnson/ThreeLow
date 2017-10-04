@@ -12,13 +12,28 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        
+        
         NSMutableArray *dice = [NSMutableArray new];
         for(int i = 0; i < 5; i++){
             Dice *newDie = [Dice new];
-            [newDie randomizeValue];
             [dice addObject:newDie];
         }
-        NSLog(@"%@", dice);
+        while(1){
+            NSLog(@"command: ");
+            char inputChars[255];
+            fgets(inputChars, 255, stdin);
+            NSString *inputString = [NSString stringWithUTF8String:inputChars];
+            inputString = [inputString substringToIndex:(inputString.length-1)];
+            
+            if([inputString isEqualToString:@"roll"]){
+                for(Dice *any in dice){
+                    [any randomizeValue];
+                }
+            }
+            NSLog(@"%@", dice);
+        }
+        
     }
     return 0;
 }
