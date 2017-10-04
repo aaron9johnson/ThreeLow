@@ -11,8 +11,10 @@
 @interface GameController : NSObject
 @property NSMutableArray *dice;
 @property NSMutableArray *heldDice;
+@property int highScore;
 -(void)holdDie:(int)number;
 -(void)roll;
+-(void)cheat;
 -(void)resetDice;
 -(int)score;
 -(NSString *)print;

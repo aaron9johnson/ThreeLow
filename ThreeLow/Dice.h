@@ -10,6 +10,8 @@
 
 @interface Dice : NSObject
 @property int currentValue;
--(int)randomizeValue;
+-(void)randomizeValue;
+-(void)setMax;
+-(void)setMin;
 -(NSString *)print;
 @end

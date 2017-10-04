@@ -15,6 +15,7 @@
     if (self) {
         _dice = [NSMutableArray new];
         _heldDice = [NSMutableArray new];
+        _highScore = 7;
         for(int i = 0; i < 5; i++){
             [_dice addObject:[Dice new]];
             [_heldDice addObject:@0];
@@ -39,12 +40,25 @@
 -(void)resetDice{
     for(int i = 0; i < _dice.count; i++){
         _heldDice[i] = @0;
+        [_dice[i] setMax];
+    }
+}
+-(void)cheat{
+    for(int i = 0; i < _dice.count; i++){
+        if([_heldDice[i]  isEqual: @0]){
+            [_dice[i] setMin];
+        }
     }
 }
 -(int)score{
     int temp = 0;
     for(Dice *any in _dice){
-        temp = temp + any.currentValue;
+        if(any.currentValue != 3){
+            temp = temp + any.currentValue;
+        }
+    }
+    if(temp < _highScore){
+        _highScore = temp;
     }
     return temp;
 }
@@ -57,7 +71,8 @@
             [temp appendString:[NSString stringWithFormat:@"%@ ", [_dice[i] print]]];
         }
     }
-    [temp appendString:[NSString stringWithFormat:@"Score: %d", [self score]]];
+    [temp appendString:[NSString stringWithFormat:@"Score: %d  ", [self score]]];
+    [temp appendString:[NSString stringWithFormat:@"High Score: %d", _highScore]];
     return temp;
 }
 @end

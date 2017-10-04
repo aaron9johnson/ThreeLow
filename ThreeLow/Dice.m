@@ -10,9 +10,14 @@
 
 @implementation Dice
 
--(int)randomizeValue{
+-(void)randomizeValue{
     _currentValue = arc4random_uniform(6) + 1;
-    return _currentValue;
+}
+-(void)setMax{
+    _currentValue = 6;
+}
+-(void)setMin{
+    _currentValue = 3;
 }
 -(NSString *)print{
     NSArray *diceImages = @[(@""), @"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
