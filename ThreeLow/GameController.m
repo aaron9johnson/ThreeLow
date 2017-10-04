@@ -36,12 +36,14 @@
             [_dice[i] randomizeValue];
         }
     }
+    _rolls = _rolls + 1;
 }
 -(void)resetDice{
     for(int i = 0; i < _dice.count; i++){
         _heldDice[i] = @0;
         [_dice[i] setMax];
     }
+    _rolls = 0;
 }
 -(void)cheat{
     for(int i = 0; i < _dice.count; i++){
@@ -71,8 +73,10 @@
             [temp appendString:[NSString stringWithFormat:@"%@ ", [_dice[i] print]]];
         }
     }
+    [temp appendString:[NSString stringWithFormat:@"Rolls: %d  ", _rolls]];
     [temp appendString:[NSString stringWithFormat:@"Score: %d  ", [self score]]];
     [temp appendString:[NSString stringWithFormat:@"High Score: %d", _highScore]];
+    
     return temp;
 }
 @end

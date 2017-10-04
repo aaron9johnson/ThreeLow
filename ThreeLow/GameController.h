@@ -12,6 +12,7 @@
 @property NSMutableArray *dice;
 @property NSMutableArray *heldDice;
 @property int highScore;
+@property int rolls;
 -(void)holdDie:(int)number;
 -(void)roll;
 -(void)cheat;
