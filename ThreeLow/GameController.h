@@ -1,5 +1,5 @@
 //
-//  Dice.h
+//  GameController.h
 //  ThreeLow
 //
 //  Created by Aaron Johnson on 2017-10-04.
@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Dice : NSObject
-@property int currentValue;
--(int)randomizeValue;
+@interface GameController : NSObject
+@property NSMutableArray *dice;
+@property NSMutableArray *heldDice;
+-(void)holdDie:(int)number;
+-(void)roll;
 -(NSString *)print;
 @end

@@ -8,17 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Dice.h"
+#import "GameController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         
+        GameController *game = [GameController new];
         
-        NSMutableArray *dice = [NSMutableArray new];
-        for(int i = 0; i < 5; i++){
-            Dice *newDie = [Dice new];
-            [dice addObject:newDie];
-        }
         while(1){
             NSLog(@"command: ");
             char inputChars[255];
@@ -27,11 +24,11 @@ int main(int argc, const char * argv[]) {
             inputString = [inputString substringToIndex:(inputString.length-1)];
             
             if([inputString isEqualToString:@"roll"]){
-                for(Dice *any in dice){
-                    [any randomizeValue];
-                }
+                [game roll];
+            } else {
+                [game holdDie:(int)[inputString integerValue]];
             }
-            NSLog(@"%@", dice);
+            NSLog(@"%@",[game print]);
         }
         
     }

@@ -14,8 +14,8 @@
     _currentValue = arc4random_uniform(6) + 1;
     return _currentValue;
 }
-- (NSString *)description{
+-(NSString *)print{
     NSArray *diceImages = @[(@""), @"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
-    return [NSString stringWithFormat:@"%@ ", diceImages[_currentValue]];
+    return [NSString stringWithFormat:@"%@", diceImages[_currentValue]];
 }
 @end
